@@ -47,7 +47,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 ####2. Attempts to reduce overfitting in the model
 
-The model was trained and validated by shuffling the data sets to ensure that the model was not overfitting (code line 40-81). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated by shuffling the data sets to ensure that the model was not overfitting (code line 28-81). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 ####3. Model parameter tuning
 
@@ -89,9 +89,9 @@ The final model architecture (model.py lines 93-103) consisted of a convolution 
 
 To capture good driving behavior, I recorded one lap on track one using center lane driving.
 
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to to recover. I didn't use this dataset in my final run since I didn't find it much useful and in some cases it was making run worse. I found using left and right camera images much more useful. I used left camera and right camera images heavily so that model can learn to recover to center if car drifts off the left or to the right. This helped in navigating thourgh trick turn specially the one that is right after the bridge. 
+I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to recover. I didn't use this dataset in my final run since I didn't find it much useful and in some cases it was making run worse. I found using left and right camera images much more useful. I used left camera and right camera images heavily so that model can learn to recover to center if car drifts off the left or to the right. This helped in navigating thourgh tricky turns specially the one that is right after the bridge. 
 
-To augment the data sat, I also flipped images and angles thinking that this would help in generalization and will also provide more data to train the model. I also added flipping for center and left camera images. This almost increased my dataset by 6 times.
+To augment the data sat, I also flipped images and angles thinking that this would help in generalization and will also provide more data to train the model. I also added flipping for center and left camera images. This almost increased my dataset by 6 times and provided much better generalization.
 
 After the above process, I had ~40000 of data points. 
 
