@@ -11,33 +11,18 @@ import cv2
 import sklearn
 import sklearn.utils
 
+#Loading the csv file lines only. Not loading the images. 
 lines = [] 
 with open('data/driving_log.csv') as csvfile:
     reader = csv.reader(csvfile)
     for line in reader:
         lines.append(line)
 
-print(len(lines))
-print(lines[-1])
-
 d_name = lines[1][0].split('/')[0]
 name = d_name +'/IMG/'+lines[1][0].split('/')[-1]
 print(name)
 image = cv2.imread(name)
 print(image.shape)
-
-#with open('data3/driving_log.csv') as csvfile:
-#    reader = csv.reader(csvfile)
-#    for line in reader:
-#        lines.append(line)
-
-
-
-#with open('data4/driving_log.csv') as csvfile:
-#    reader = csv.reader(csvfile)
-#    for line in reader:
-#        lines.append(line)
-
 
 from sklearn.model_selection import train_test_split
 train_samples, validation_samples = train_test_split(lines, test_size=0.2)
@@ -47,6 +32,7 @@ print(train_samples[-1])
 print(len(validation_samples))
 print(validation_samples[-1])
 
+#Generator. Loading of actual images happens inside this. It also augments the images by flipping it and also loading center, left camera images.
 def generator(samples, batch_size=32):
     num_samples = len(samples)
     correction= 0.1
@@ -103,6 +89,7 @@ from keras.layers import Lambda, Cropping2D
 from keras.layers.convolutional import Convolution2D
 from keras.layers.pooling import MaxPooling2D
 
+#Model to train. 
 model = Sequential()
 model.add(Lambda(lambda x: (x / 255.0) - 0.5, input_shape=(160,320,3)))
 model.add(Cropping2D(cropping=((70,25), (0,0))))
@@ -115,9 +102,10 @@ model.add(Dense(120))
 model.add(Dense(84))
 model.add(Dense(1))
 
-
+#using adam optimizer. 
 model.compile(loss='mse', optimizer='adam')
 #model.fit(X_train, Y_train, validation_split=0.2, shuffle=True, nb_epoch=3)
+#using generator
 model.fit_generator(train_generator, samples_per_epoch= len(train_samples)*6, validation_data=validation_generator, nb_val_samples=len(validation_samples)*6, nb_epoch=5)
 model.save('model.h5')
 
