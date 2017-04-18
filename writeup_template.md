@@ -75,15 +75,15 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 93-103) consisted of a convolution neural network with the following layers and layer sizes.
 
-*Lambda Layer
-*Cropping
-*CNN2D Layer using 5x5 filter
-*RELU activation
-*Maxpooling Layer
-*CNN2D Layer using 5x5 filter
-*RELU activation
-*Maxpooling
-*Flatting and then fully connected layers
+* Lambda Layer
+* Cropping
+* CNN2D Layer using 5x5 filter
+* RELU activation
+* Maxpooling Layer
+* CNN2D Layer using 5x5 filter
+* RELU activation
+* Maxpooling
+* Flatting and then fully connected layers
 
 ####3. Creation of the Training Set & Training Process
 
