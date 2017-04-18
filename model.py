@@ -75,7 +75,7 @@ def generator(samples, batch_size=32):
                     aug_images.append(cv2.flip(image,1))
                     aug_angles.append(angle*-1.0)
 
-            # trim image to only see section with road
+            
             X_train = np.array(aug_images)
             y_train = np.array(aug_angles)
             yield sklearn.utils.shuffle(X_train, y_train)
