@@ -97,6 +97,29 @@ After the above process, I had ~40000 of data points.
 
 Below is the one image set of my final data set. It includes center, left, right, center flipped, left flipped and right flipped images.
 
+Center Image
+
+![Center](/center.png?raw=true "Center Image")
+
+Left Image
+
+![Left](/left.png?raw=true "Left Image")
+
+Right Image
+
+![Right](/right.png?raw=true "Right Image")
+
+Center Flipped Image
+
+![Center Flipped](/center_flip.png?raw=true "Center Flipped Image")
+
+Left Flipped Image
+
+![Left Flipped](/left_flip.png?raw=true "Left Flipped Image")
+
+Right Flipped Image
+
+![Right Flipped](/right_flip.png?raw=true "Right Flipped Image")
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
