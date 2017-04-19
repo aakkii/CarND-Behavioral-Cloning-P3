@@ -95,6 +95,9 @@ To augment the data sat, I also flipped images and angles thinking that this wou
 
 After the above process, I had ~40000 of data points. 
 
+Below is the one image set of my final data set. It includes center, left, right, center flipped, left flipped and right flipped images.
+
+
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
 I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 5 as validation loss didn't improve much and started increasing. I used an adam optimizer so that manually training the learning rate wasn't necessary.
